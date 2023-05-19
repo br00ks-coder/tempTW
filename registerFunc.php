@@ -28,6 +28,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
+    // Check if the user already exists
+    $query = "SELECT COUNT(*) FROM users WHERE username = $1";
+    $result = pg_query_params($dbconn, $query, array($username));
+    $row = pg_fetch_row($result);
+    $userExists = $row[0] > 0;
+    if ($userExists) {
+        $_SESSION['message'] = "User already registered.";
+        header("Location: register.php");
+        exit;
+    }
+
     // Perform additional validation checks here...
 
     // Insert the user data into the database

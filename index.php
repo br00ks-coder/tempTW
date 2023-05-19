@@ -73,7 +73,7 @@ session_start();
         <a href="buy.php">
           <li class="buy_flowers">Buy Flowers</li>
         </a>
-        <a href="#footer">
+        <a href="contac.php">
           <li class="contact_button">Contact Us</li>
         </a>
       </ul>
