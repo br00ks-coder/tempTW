@@ -6,7 +6,7 @@ files:
     deleteFiles: true
 hooks:
   AfterInstall:
-    - location: /var/www/html
+    - location: /
       timeout: 300
       runas: root
       command: |
