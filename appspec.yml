@@ -2,4 +2,13 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /var/www/html/
+    destination: /var/www/html
+    deleteFiles: true
+hooks:
+  AfterInstall:
+    - location: /var/www/html
+      timeout: 300
+      runas: root
+      command: |
+        cd /home
+        touch test
