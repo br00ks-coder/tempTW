@@ -9,6 +9,6 @@ hooks:
     - location: /var/www/html
       timeout: 300
       runas: root
-      command: |
-        cd /home
+      command: >
+        cd /home &&
         touch test
