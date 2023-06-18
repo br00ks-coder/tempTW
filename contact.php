@@ -45,15 +45,15 @@ session_start();
 
 <div class="contact-div">
   <h2>Contact Us</h2>
-  <form style="position: relative ;left:1px;">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name">
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email">
-    <label for="message">Message:</label>
-    <textarea id="message" name="message"></textarea>
-    <button type="submit">Send</button>
-  </form>
+  <form style="position: relative; left: 1px;" method="post" action="process_contact.php">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name">
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email">
+  <label for="message">Message:</label>
+  <textarea id="message" name="message"></textarea>
+  <button type="submit">Send</button>
+</form>
 </div>
 
 
