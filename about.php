@@ -21,11 +21,22 @@ session_start();
   </head>
 
   <body>
-    <div
-      id="backgroundStyle">
-        <!-- backgound Image -->
-      </div>
-    <!--Declared here to load as fast as possible-->
+  <!-- Image for background -->
+  <div id="background"
+       style="
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    background-image: url('resources/background_lavender.jpeg');
+    background-size: cover;
+    filter: blur(4px);
+    z-index: -1;
+    ">
+      >
+  </div>
+  <!-- Declared here to load as fast as possible -->
 
     <header class="header">
 
