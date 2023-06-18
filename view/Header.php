@@ -48,7 +48,7 @@
             <a href="buy.php">
                 <li class="buy_flowers">Buy Flowers</li>
             </a>
-            <a href="contac.php">
+            <a href="contact.php">
                 <li class="contact_button">Contact Us</li>
             </a>
         </ul>
