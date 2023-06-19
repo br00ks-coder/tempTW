@@ -22,7 +22,7 @@ while ($row = pg_fetch_assoc($result)) {
     $username = $row['username'];
 
     $html .= '<p>' . $username . '</p>';
-    $html .= '<form method="post" action="delete_user.php">';
+    $html .= '<form id="delete-user-form" method="post" action="delete_user.php">';
     $html .= '<input type="hidden" name="user_id" value="' . $userId . '">';
     $html .= '<button type="submit" name="delete">Delete</button>';
     $html .= '</form>';
