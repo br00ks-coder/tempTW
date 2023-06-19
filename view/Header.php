@@ -14,7 +14,7 @@
     </div>
     <h1 class="title">John Doe's Web Garden</h1>
     <nav class="nav_bar">
-        <a class="login_list">
+        <ul class="login_list">
             <!-- HTML code -->
 
             <?php if (isset($_SESSION['username'])): ?>
@@ -28,7 +28,7 @@
                 <a href ="../help.php" >
                     <li class="contact_button">Get Help </li>
                 </a>
-                </a>
+                </ul>
             <?php else: ?>
                 <!-- Display content for non-logged-in users -->
                 <a href="../login.php">
@@ -37,8 +37,7 @@
                 <a href="../register.php">
                     <li class="register">Register</li>
                 </a>
-
-
+            
             <?php endif; ?>
         </ul>
     </nav>
