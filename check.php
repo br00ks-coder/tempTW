@@ -13,7 +13,7 @@ $query = "SELECT * FROM my_harvests"; $result = pg_query($dbconn, $query);
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/GeneralStyle.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/check.css" />
+    <link rel="stylesheet" href="css/buy.css" />
     <script
             src="https://kit.fontawesome.com/fb7068e0f1.js"
             crossorigin="anonymous"
