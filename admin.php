@@ -71,8 +71,9 @@ if (!$dbconn) {
         $userId = $row['id'];
         $username = $row['username'];
 
-      echo '<p>' . $username . '</p>';
 echo '<form method="post" action="delete_user.php">';
+              echo '<p>' . $username . '</p>';
+
 echo '<input type="hidden" name="user_id" value="' . $userId . '">';
 echo '<button type="submit" name="delete">Delete</button>';
 echo '</form>';
