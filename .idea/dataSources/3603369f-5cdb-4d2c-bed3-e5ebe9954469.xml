@@ -8,7 +8,7 @@
 16384||10|C|G
 16384||10|T|G
 16384||16394|T|G</Grants>
-      <IntrospectionStateNumber>10290</IntrospectionStateNumber>
+      <IntrospectionStateNumber>10408</IntrospectionStateNumber>
       <ServerVersion>14.6</ServerVersion>
       <StartupTime>1684315376</StartupTime>
       <TimeZones>true ACDT
@@ -815,7 +815,7 @@ false Zulu
 14351||10|C|G
 14351||-9223372036854775808|U|G
 14351||10|U|G</Grants>
-      <IntrospectionStateNumber>10290</IntrospectionStateNumber>
+      <IntrospectionStateNumber>10408</IntrospectionStateNumber>
       <ObjectId>16402</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4304,7 +4304,7 @@ default_transaction_read_only=off</Config>
     <schema id="271" parent="4" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>10290</IntrospectionStateNumber>
+      <IntrospectionStateNumber>10408</IntrospectionStateNumber>
       <ObjectId>2200</ObjectId>
       <StateNumber>796</StateNumber>
       <OwnerName>postgres</OwnerName>
@@ -4328,7 +4328,7 @@ default_transaction_read_only=off</Config>
     <sequence id="274" parent="271" name="users_id_seq">
       <DasType>integer|0s</DasType>
       <ObjectId>16403</ObjectId>
-      <SequenceIdentity>1(19)</SequenceIdentity>
+      <SequenceIdentity>1(34)</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>1358</StateNumber>
       <OwnerName>postgres</OwnerName>
@@ -4341,17 +4341,23 @@ default_transaction_read_only=off</Config>
     </table>
     <table id="276" parent="271" name="flowers">
       <ObjectId>16413</ObjectId>
-      <StateNumber>10289</StateNumber>
+      <StateNumber>10355</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="277" parent="271" name="users">
+    <table id="277" parent="271" name="flowers_humidity">
+      <ObjectId>16433</ObjectId>
+      <StateNumber>10371</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <table id="278" parent="271" name="users">
       <ObjectId>16404</ObjectId>
       <StateNumber>10234</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <column id="278" parent="275" name="id">
+    <column id="279" parent="275" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;contact_messages_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4360,32 +4366,32 @@ default_transaction_read_only=off</Config>
       <SequenceId>16422</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="279" parent="275" name="name">
+    <column id="280" parent="275" name="name">
       <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
       <StateNumber>10222</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="280" parent="275" name="email">
+    <column id="281" parent="275" name="email">
       <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
       <StateNumber>10222</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="281" parent="275" name="message">
+    <column id="282" parent="275" name="message">
       <DasType>text|0s</DasType>
       <Position>4</Position>
       <StateNumber>10222</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="282" parent="275" name="created_at">
+    <column id="283" parent="275" name="created_at">
       <DasType>timestamp|0s</DasType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <Position>5</Position>
       <StateNumber>10222</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <index id="283" parent="275" name="contact_messages_pkey">
+    <index id="284" parent="275" name="contact_messages_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16430</ObjectId>
@@ -4394,14 +4400,14 @@ default_transaction_read_only=off</Config>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="284" parent="275" name="contact_messages_pkey">
+    <key id="285" parent="275" name="contact_messages_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16431</ObjectId>
       <Primary>1</Primary>
       <StateNumber>10222</StateNumber>
       <UnderlyingIndexId>16430</UnderlyingIndexId>
     </key>
-    <column id="285" parent="276" name="id">
+    <column id="286" parent="276" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;flowers_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4410,50 +4416,50 @@ default_transaction_read_only=off</Config>
       <SequenceId>16412</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="286" parent="276" name="name">
+    <column id="287" parent="276" name="name">
       <DasType>varchar(100)|0s</DasType>
       <Position>2</Position>
       <StateNumber>10192</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="287" parent="276" name="description">
+    <column id="288" parent="276" name="description">
       <DasType>text|0s</DasType>
       <Position>3</Position>
       <StateNumber>10192</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="288" parent="276" name="price">
+    <column id="289" parent="276" name="price">
       <DasType>numeric(10,2 digit)|0s</DasType>
       <Position>4</Position>
       <StateNumber>10192</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <column id="289" parent="276" name="available_quantity">
+    <column id="290" parent="276" name="available_quantity">
       <DasType>integer|0s</DasType>
       <Position>5</Position>
       <StateNumber>10192</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="290" parent="276" name="created_at">
+    <column id="291" parent="276" name="created_at">
       <DasType>timestamp|0s</DasType>
       <DefaultExpression>now()</DefaultExpression>
       <Position>6</Position>
       <StateNumber>10192</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="291" parent="276" name="difficulty">
+    <column id="292" parent="276" name="difficulty">
       <DasType>text|0s</DasType>
       <Position>7</Position>
       <StateNumber>10211</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="292" parent="276" name="flower_images">
+    <column id="293" parent="276" name="flower_images">
       <DasType>text|0s</DasType>
       <Position>8</Position>
       <StateNumber>10289</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <index id="293" parent="276" name="flowers_pkey">
+    <index id="294" parent="276" name="flowers_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16420</ObjectId>
@@ -4462,14 +4468,38 @@ default_transaction_read_only=off</Config>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="294" parent="276" name="flowers_pkey">
+    <key id="295" parent="276" name="flowers_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16421</ObjectId>
       <Primary>1</Primary>
       <StateNumber>10192</StateNumber>
       <UnderlyingIndexId>16420</UnderlyingIndexId>
     </key>
-    <column id="295" parent="277" name="id">
+    <column id="296" parent="277" name="id">
+      <DasType>integer|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>10370</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="297" parent="277" name="humidity">
+      <DasType>integer|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StateNumber>10371</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <foreign-key id="298" parent="277" name="flowers_humidity_flowers_id_match">
+      <ColNames>id</ColNames>
+      <ObjectId>16436</ObjectId>
+      <RefColNames>id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>10362</StateNumber>
+      <RefTableId>16413</RefTableId>
+      <RefTableName>flowers</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <column id="299" parent="278" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;users_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4478,28 +4508,28 @@ default_transaction_read_only=off</Config>
       <SequenceId>16403</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="296" parent="277" name="password">
+    <column id="300" parent="278" name="password">
       <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>1358</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="297" parent="277" name="username">
+    <column id="301" parent="278" name="username">
       <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>1358</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="298" parent="277" name="is_admin">
+    <column id="302" parent="278" name="is_admin">
       <DasType>boolean|0s</DasType>
       <DefaultExpression>false</DefaultExpression>
       <Position>4</Position>
       <StateNumber>10234</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <index id="299" parent="277" name="users_pkey">
+    <index id="303" parent="278" name="users_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16410</ObjectId>
@@ -4508,7 +4538,7 @@ default_transaction_read_only=off</Config>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="300" parent="277" name="users_pkey">
+    <key id="304" parent="278" name="users_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16411</ObjectId>
       <Primary>1</Primary>
