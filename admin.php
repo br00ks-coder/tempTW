@@ -63,89 +63,93 @@ if (!$dbconn) {
 </div>
 
 <script>
-$(document).ready(function() {
-    // Make AJAX request to fetch user data
-    $.ajax({
-        url: "fetch_users.php",
-        method: "GET",
-        dataType: "html",
-        success: function(response) {
-            // Update the user container div with the fetched data
-            $("#user-container").html(response);
-        },
-        error: function(xhr, status, error) {
-            console.log("AJAX request error:", error);
-        }
-    });
+  $(document).ready(function() {
+    // Function to fetch user data
+    function fetchUserData() {
+        $.ajax({
+            url: "fetch_users.php",
+            method: "GET",
+            dataType: "html",
+            success: function(response) {
+                // Update the user container div with the fetched data
+                $("#user-container").html(response);
+            },
+            error: function(xhr, status, error) {
+                console.log("AJAX request error:", error);
+            }
+        });
+    }
 
-    // Handle password change form submission
+    // Function to handle password change form submission
+    function handlePasswordChangeFormSubmit() {
+        var form = $(this);
+        var url = form.attr("action");
+        var formData = form.serialize(); // Serialize form data
+
+        $.ajax({
+            url: url,
+            method: "POST",
+            data: formData,
+            success: function(response) {
+                // Display success message
+                console.log(response);
+
+                // Fetch user data after successful password change
+                fetchUserData();
+            },
+            error: function(xhr, status, error) {
+                console.log("AJAX request error:", error);
+            }
+        });
+    }
+
+    // Function to handle delete user form submission
+    function handleDeleteUserFormSubmit() {
+        var form = $(this);
+        var url = form.attr("action");
+        var formData = form.serialize(); // Serialize form data
+
+        $.ajax({
+            url: url,
+            method: "POST",
+            data: formData,
+            success: function(response) {
+                // Display success message
+                console.log(response);
+
+                // Fetch user data after successful user deletion
+                fetchUserData();
+            },
+            error: function(xhr, status, error) {
+                console.log("AJAX request error:", error);
+            }
+        });
+    }
+
+    // Call fetchUserData initially
+    fetchUserData();
+
+    // Polling function to fetch user data at regular intervals
+    function pollUserData() {
+        fetchUserData(); // Call fetchUserData
+
+        // Set the polling interval (e.g., every 5 seconds)
+        setTimeout(pollUserData, 5000);
+    }
+
+    // Start the polling process
+    pollUserData();
+
+    // Event listener for password change form submission
     $(document).on("submit", "#change-password-form", function(event) {
         event.preventDefault(); // Prevent form submission
-
-        var form = $(this);
-        var url = form.attr("action");
-        var formData = form.serialize(); // Serialize form data
-
-        $.ajax({
-            url: url,
-            method: "POST",
-            data: formData,
-            success: function(response) {
-                // Display success message
-                console.log(response);
-
-                // Reload user data after successful password change
-                $.ajax({
-                    url: "fetch_users.php",
-                    method: "GET",
-                    dataType: "html",
-                    success: function(response) {
-                        // Update the user container div with the fetched data
-                        $("#user-container").html(response);
-                    },
-                    error: function(xhr, status, error) {
-                        console.log("AJAX request error:", error);
-                    }
-                });
-            },
-            error: function(xhr, status, error) {
-                console.log("AJAX request error:", error);
-            }
-        });
+        handlePasswordChangeFormSubmit.call(this);
     });
+
+    // Event listener for delete user form submission
     $(document).on("submit", "#delete-user-form", function(event) {
         event.preventDefault(); // Prevent form submission
-
-        var form = $(this);
-        var url = form.attr("action");
-        var formData = form.serialize(); // Serialize form data
-
-        $.ajax({
-            url: url,
-            method: "POST",
-            data: formData,
-            success: function(response) {
-                // Display success message
-                console.log(response);
-
-                // Reload user data after successful user deletion
-                $.ajax({
-                    url: "fetch_users.php",
-                    method: "GET",
-                    dataType: "html",
-                    success: function(response) {
-                        // Update the user container div with the fetched data
-                        $("#user-container").html(response);
-                    },
-                    error: function(xhr, status, error) {
-                        console.log("AJAX request error:", error);
-                    }
-                });
-            },
-            error: function(xhr, status, error) {
-                console.log("AJAX request error:", error);
-            }
-        });
+        handleDeleteUserFormSubmit.call(this);
     });
 });
 </script>
