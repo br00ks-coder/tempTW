@@ -63,7 +63,8 @@ if (!$dbconn) {
 </div>
 
 <script>
-  $(document).ready(function() {
+
+$(document).ready(function() {
     // Function to fetch user data
     function fetchUserData() {
         $.ajax({
@@ -152,6 +153,7 @@ if (!$dbconn) {
         handleDeleteUserFormSubmit.call(this);
     });
 });
+
 </script>
 
 
