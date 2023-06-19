@@ -1,6 +1,8 @@
 <?php
 // Start the session
 session_start();
+$dbconn = pg_connect("host=webgardeningrds.cepe7iq3kfqk.eu-north-1.rds.amazonaws.com port=5432 dbname=webgardening user=postgres password=paroladb");
+$query = "SELECT * FROM flower"; $result = pg_query($dbconn, $query);
 ?>
 
 <!DOCTYPE html>
@@ -43,38 +45,27 @@ session_start();
 <main style="height: fit-content">
     <h2>Featured Flowers</h2>
     <section class="flowers">
-        <div class="flower">
-            <img src="/resources/tulip.jpg" alt="Tulip" class="flower-image" />
-            <h3>Tulip</h3>
-            <p>Price: apelarebd</p>
-            <p>Description: apelarebd </p>
-            <p>Quantity: apelarebd
-            <p>Difficulty to Maintain and Grow: apelarebd</p>
-        </div>
-        <div class="flower">
-            <img src="/resources/lily.jpg" alt="Lily" class="flower-image" />
-            <h3>Lily</h3>
-            <p>Price: apelarebd</p>
-            <p>Description: apelarebd </p>
-            <p>Quantity: apelarebd
-            <p>Difficulty to Maintain and Grow: apelarebd</p>
-        </div>
-        <div class="flower">
-            <img src="/resources/roseBuy.jpg" alt="Rose" class="flower-image" />
-            <h3>Rose</h3>
-            <p>Price: apelarebd</p>
-            <p>Description: apelarebd </p>
-            <p>Quantity: apelarebd
-            <p>Difficulty to Maintain and Grow: apelarebd</p>
-        </div>
-        <div class="flower">
-            <img src="/resources/sunflower.jpg" alt="Sunflower" class="flower-image" />
-            <h3>Sunflower</h3>
-            <p>Price: apelarebd</p>
-            <p>Description: apelarebd </p>
-            <p>Quantity: apelarebd
-            <p>Difficulty to Maintain and Grow: apelarebd</p>
-        </div>
+        <?php
+        while ($row = pg_fetch_assoc($result)) {
+        $flowerName = $row['name'];
+        $flowerPrice = $row['price'];
+        $flowerDesc = $row['description'];
+        $flowerDiff = $row['difficulty'];
+        $flowerAvailableQ = $row['available_quantity'];
+        $flowerImg = $row['flower_images'];
+
+
+        echo '<div class="flower">';
+            echo '<h3>' . $flowerName . '</h3>';
+            echo '<p>Color: ' . $flowerDesc . '</p>';
+            echo '<p>Price: ' . $flowerPrice . '</p>';
+            echo '<p>Difficulty to Maintain: ' . $flowerDiff . '</p>';
+            echo '<p>Available Quantity: ' . $flowerAvailableQ . '</p>';
+
+            echo '<img src="' . $flowerImg . '.jpg" >';
+            echo '</div>';
+        }
+        ?>
     </section>
 
 </main>
