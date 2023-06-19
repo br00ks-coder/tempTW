@@ -63,6 +63,7 @@ if (!$dbconn) {
 </div>
 
 <script>
+
 $(document).ready(function() {
     // Function to fetch user data
     function fetchUserData() {
