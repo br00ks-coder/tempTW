@@ -23,7 +23,6 @@ if (!$dbconn) {
     } else {
         echo "Invalid request.";
     }
-               header("Location: admin.php");
 
 
 
