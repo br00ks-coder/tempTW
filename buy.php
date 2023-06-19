@@ -62,7 +62,7 @@ $query = "SELECT * FROM flowers"; $result = pg_query($dbconn, $query);
             echo '<p>Difficulty to Maintain: ' . $flowerDiff . '</p>';
             echo '<p>Available Quantity: ' . $flowerAvailableQ . '</p>';
 
-            echo '<img src="' . $flowerImg . '.jpg" >';
+            echo '<img class="flower-image" src="' . $flowerImg . '.jpg" >';
             echo '</div>';
         }
         ?>
