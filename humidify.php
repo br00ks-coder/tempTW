@@ -2,6 +2,13 @@
 // Start the session
 session_start();
 $dbconn = pg_connect("host=webgardeningrds.cepe7iq3kfqk.eu-north-1.rds.amazonaws.com port=5432 dbname=webgardening user=postgres password=paroladb");
+
+if (isset($_POST['water_flowers'])) {
+    // Perform the update query to change the humidity to 100%
+    $updateQuery = "UPDATE flowers_humidity SET humidity = 100";
+    pg_query($dbconn, $updateQuery);
+}
+
 $query = "select flowers.name, flowers.available_quantity, flowers.flowers_images, flowers_humidity.humidity from flowers join flowers_humidity on flowers.id = flowers_humidity.id;";
 $result = pg_query($dbconn, $query);
 ?>
@@ -65,8 +72,11 @@ $result = pg_query($dbconn, $query);
     </section>
 
     <div>
-        <button name="Water Flowers"></button>
+        <form method="POST">
+            <button type="submit" name="water_flowers">Water Flowers</button>
+        </form>
     </div>
+
 
 </main>
 
