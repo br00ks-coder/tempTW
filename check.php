@@ -12,6 +12,7 @@ session_start();
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/GeneralStyle.css" />
   <link rel="stylesheet" href="css/style.css" />
+
   <script src="https://kit.fontawesome.com/fb7068e0f1.js" crossorigin="anonymous"></script>
   <!--used for icons-->
   <title>Web Gardening</title>

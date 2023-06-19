@@ -5,9 +5,9 @@
 <header class="header">
     <div class="logo_icon_container">
         <div class="logo_container">
-            <a class="logo" href="index.php">
+            <a class="logo" href="../index.php">
                 <!--Link within the logo to be redirected to the main page-->
-                <img class="logo" id="logo" src="resources/Logo.png" alt="logo" width="130em" height="70em"/>
+                <img class="logo" id="logo" src="../resources/Logo.png" alt="logo" width="130em" height="70em"/>
             </a>
         </div>
         <div class="icon_container"><i class="fa-solid fa-bars" id="open_menu"></i></div>
@@ -19,18 +19,18 @@
 
             <?php if (isset($_SESSION['username'])): ?>
                 <!-- Display content for logged-in users -->
-                <a href="profile.php">
+                <a href="../profile.php">
                     <li class="profile">Profile</li>
                 </a>
-                <a href="logout.php">
+                <a href="../logout.php">
                     <li class="logout">Log out</li>
                 </a>
             <?php else: ?>
                 <!-- Display content for non-logged-in users -->
-                <a href="login.php">
+                <a href="../login.php">
                     <li class="log_in">Log In</li>
                 </a>
-                <a href="register.php">
+                <a href="../register.php">
                     <li class="register">Register</li>
                 </a>
             <?php endif; ?>
@@ -39,35 +39,35 @@
     <div class="horizontal_rule"></div>
     <nav class="nav_list">
         <ul>
-            <a href="about.php">
+            <a href="../about.php">
                 <li class="about_us">About Us</li>
             </a>
-            <a href="check.php">
+            <a href="../check.php">
                 <li class="check_flowers">Check Flowers</li>
             </a>
-            <a href="buy.php">
+            <a href="../buy.php">
                 <li class="buy_flowers">Buy Flowers</li>
             </a>
-            <a href="contact.php">
+            <a href="../contact.php">
                 <li class="contact_button">Contact Us</li>
             </a>
         </ul>
     </nav>
     <nav id="nav_for_media">
         <ul><i class="fa-solid fa-xmark" id="close_menu"></i>
-            <a href="#">
+            <a href="../login.php">
                 <li class="log_in">Log In</li>
             </a>
-            <a href="#">
+            <a href="../register.php">
                 <li class="register">Register</li>
             </a>
-            <a href="index.php#main">
+            <a href="../index.php#main">
                 <li class="about_us">About Us</li>
             </a>
-            <a href="#">
+            <a href="../check.php">
                 <li class="check_flowers">Check Flowers</li>
             </a>
-            <a href="#">
+            <a href="../buy.php">
                 <li class="buy_flowers">Buy Flowers</li>
             </a>
             <a href="#footer">
