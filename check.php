@@ -43,7 +43,7 @@ $query = "SELECT * FROM my_harvests"; $result = pg_query($dbconn, $query);
 <?php include_once "./view/Header.php"; ?>
 
 <main style="height: fit-content">
-    <h2>Featured Flowers</h2>
+    <h2>My Harvests</h2>
     <section class="flowers">
         <?php
         while ($row = pg_fetch_assoc($result)) {
