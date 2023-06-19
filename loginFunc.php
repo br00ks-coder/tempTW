@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
    
 
-    $query = "SELECT id,username,password FROM users WHERE username = $1 AND password = $2";
+    $query = "SELECT id,username,password,is_admin FROM users WHERE username = $1 AND password = $2";
     $result = pg_query_params($dbconn, $query, array($username, $password));
 
     if (!$result) {
@@ -29,8 +29,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
        // Redirect to a protected page or display a success message
 
-        header("Location: index.php");
-    exit; // Make sure to exit after the redirection
+        if ($row['is_admin']=='t') {
+            // Redirect to the admin page
+            header("Location: admin.php");
+            exit; // Make sure to exit after the redirection
+        } else {
+            // Redirect to a regular user page or display a success message
+            header("Location: index.php");
+            exit; // Make sure to exit after the redirection
+        }    exit; // Make sure to exit after the redirection
     } else {
         // User does not exist or credentials are incorrect
         echo "Invalid username or password.";
