@@ -13,7 +13,7 @@ $query = "SELECT * FROM my_harvests"; $result = pg_query($dbconn, $query);
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/GeneralStyle.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/buy.css" />
+    <link rel="stylesheet" href="css/check.css" />
     <script
             src="https://kit.fontawesome.com/fb7068e0f1.js"
             crossorigin="anonymous"
@@ -44,7 +44,7 @@ $query = "SELECT * FROM my_harvests"; $result = pg_query($dbconn, $query);
 
 <main style="height: fit-content">
     <h2>My Harvests</h2>
-    <section class="flowers">
+    <section class="harvest-flowers">
         <?php
         while ($row = pg_fetch_assoc($result)) {
             $harvName = $row['har_name'];
@@ -53,7 +53,7 @@ $query = "SELECT * FROM my_harvests"; $result = pg_query($dbconn, $query);
 
 
 
-            echo '<div class="flower">';
+            echo '<div class="flower_harvest">';
             echo '<h3>' . $harvName. '</h3>';
             echo '<p>Date Planted: ' . $harDatePlanted . '</p>';
             echo '<p>Date of Harvest: ' . $harDateFinished . '</p>';

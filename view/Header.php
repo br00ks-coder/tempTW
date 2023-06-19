@@ -37,7 +37,7 @@
                 <a href="../register.php">
                     <li class="register">Register</li>
                 </a>
-            
+
             <?php endif; ?>
         </ul>
     </nav>
