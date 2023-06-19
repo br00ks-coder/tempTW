@@ -57,7 +57,7 @@ $query = "SELECT * FROM flowers"; $result = pg_query($dbconn, $query);
 
         echo '<div class="flower">';
             echo '<h3>' . $flowerName . '</h3>';
-            echo '<p>Color: ' . $flowerDesc . '</p>';
+            echo '<p>Description: ' . $flowerDesc . '</p>';
             echo '<p>Price: ' . $flowerPrice . '</p>';
             echo '<p>Difficulty to Maintain: ' . $flowerDiff . '</p>';
             echo '<p>Available Quantity: ' . $flowerAvailableQ . '</p>';
