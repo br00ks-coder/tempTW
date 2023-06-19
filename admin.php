@@ -113,6 +113,40 @@ $(document).ready(function() {
             }
         });
     });
+    $(document).on("submit", "#delete-user-form", function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        var form = $(this);
+        var url = form.attr("action");
+        var formData = form.serialize(); // Serialize form data
+
+        $.ajax({
+            url: url,
+            method: "POST",
+            data: formData,
+            success: function(response) {
+                // Display success message
+                console.log(response);
+
+                // Reload user data after successful user deletion
+                $.ajax({
+                    url: "fetch_users.php",
+                    method: "GET",
+                    dataType: "html",
+                    success: function(response) {
+                        // Update the user container div with the fetched data
+                        $("#user-container").html(response);
+                    },
+                    error: function(xhr, status, error) {
+                        console.log("AJAX request error:", error);
+                    }
+                });
+            },
+            error: function(xhr, status, error) {
+                console.log("AJAX request error:", error);
+            }
+        });
+    });
 });
 </script>
 
