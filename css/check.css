@@ -22,7 +22,7 @@ main {
     justify-content: space-evenly;
 }
 
-.flower {
+.flower_harvest {
     border: 2px solid  hsl(220, 17%, 27%);;
     border-radius: 10px;
     background: linear-gradient(hsl(246, 30%, 63%), hsl(20, 0%, 86%));
