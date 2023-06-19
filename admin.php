@@ -51,7 +51,7 @@ if (!$dbconn) {
            
         </ul>
     </nav>
-<main style="height: 50vh;">
+<main style="height: fit-content;">
    
 
 
