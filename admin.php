@@ -42,10 +42,15 @@ if (!$dbconn) {
   </div>
   <!-- Declared here to load as fast as possible -->
 
-  <?php
-  include_once './view/Header.php';
-  ?>
-
+ <nav class="nav_bar">
+        <ul class="login_list">
+            <!-- HTML code -->
+                <a href="logout.php">
+                    <li class="logout">Log out</li>
+                </a>
+           
+        </ul>
+    </nav>
 <main style="height: 50vh;">
    
 
