@@ -49,7 +49,7 @@ session_start();
   <h2>About Us</h2>
 <p>
   We are passionate about helping you create your very own green paradise right at home. Whether you're an experienced gardener or just starting out, our goal is to provide you with the knowledge, inspiration, and tools you need to nurture beautiful plants and create stunning outdoor spaces.
-
+<br>
 With years of experience in the gardening industry, our team of experts is dedicated to sharing their expertise and helping you unleash your gardening potential. We understand that gardening is more than just a hobby—it's a way to connect with nature, find solace in the beauty of plants, and create a harmonious environment.
 </p>
 </div>
