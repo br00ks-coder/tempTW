@@ -29,7 +29,6 @@ if (!$dbconn) {
         echo "Invalid request.";
         exit;
     }
-               header("Location: admin.php");
 
 
 pg_close($dbconn);

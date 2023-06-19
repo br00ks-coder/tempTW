@@ -16,6 +16,8 @@ if (!$dbconn) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/GeneralStyle.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <script
       src="https://kit.fontawesome.com/fb7068e0f1.js"
       crossorigin="anonymous"
@@ -42,7 +44,7 @@ if (!$dbconn) {
   </div>
   <!-- Declared here to load as fast as possible -->
 
- <nav class="nav_bar">
+  <nav class="nav_bar">
         <ul class="login_list">
             <!-- HTML code -->
                 <a href="logout.php">
@@ -51,43 +53,103 @@ if (!$dbconn) {
            
         </ul>
     </nav>
-<main style="height: fit-content;">
+
+<main style="height: 50vh;">
    
 
 
-   <div id="user-container">
-        <?php
- $query = "SELECT id, username FROM users";
-    $result = pg_query($dbconn, $query);
+  <div id="user-container">
+    <!-- User data will be loaded dynamically here -->
+</div>
 
-    if (!$result) {
-        // Handle query error
-        die("Query failed: " . pg_last_error());
-    }
+<script>
+$(document).ready(function() {
+    // Make AJAX request to fetch user data
+    $.ajax({
+        url: "fetch_users.php",
+        method: "GET",
+        dataType: "html",
+        success: function(response) {
+            // Update the user container div with the fetched data
+            $("#user-container").html(response);
+        },
+        error: function(xhr, status, error) {
+            console.log("AJAX request error:", error);
+        }
+    });
 
-    // Display users and options in a div
-    echo '<div>';
-    while ($row = pg_fetch_assoc($result)) {
-        $userId = $row['id'];
-        $username = $row['username'];
+    // Handle password change form submission
+    $(document).on("submit", "#change-password-form", function(event) {
+        event.preventDefault(); // Prevent form submission
 
-echo '<form method="post" action="delete_user.php">';
-              echo '<p>' . $username . '</p>';
+        var form = $(this);
+        var url = form.attr("action");
+        var formData = form.serialize(); // Serialize form data
 
-echo '<input type="hidden" name="user_id" value="' . $userId . '">';
-echo '<button type="submit" name="delete">Delete</button>';
-echo '</form>';
+        $.ajax({
+            url: url,
+            method: "POST",
+            data: formData,
+            success: function(response) {
+                // Display success message
+                console.log(response);
 
-echo '<form method="post" action="change_password.php">';
-echo '<input type="hidden" name="user_id1" value="' . $userId . '">';
-echo '<input type="password" name="new_password1" placeholder="New Password">';
-echo '<button type="submit" name="change_password">Change Password</button>';
-echo '</form>';
+                // Reload user data after successful password change
+                $.ajax({
+                    url: "fetch_users.php",
+                    method: "GET",
+                    dataType: "html",
+                    success: function(response) {
+                        // Update the user container div with the fetched data
+                        $("#user-container").html(response);
+                    },
+                    error: function(xhr, status, error) {
+                        console.log("AJAX request error:", error);
+                    }
+                });
+            },
+            error: function(xhr, status, error) {
+                console.log("AJAX request error:", error);
+            }
+        });
+    });
+    $(document).on("submit", "#delete-user-form", function(event) {
+        event.preventDefault(); // Prevent form submission
 
-    }
-    echo '</div>';
-        ?>
-    </div>
+        var form = $(this);
+        var url = form.attr("action");
+        var formData = form.serialize(); // Serialize form data
+
+        $.ajax({
+            url: url,
+            method: "POST",
+            data: formData,
+            success: function(response) {
+                // Display success message
+                console.log(response);
+
+                // Reload user data after successful user deletion
+                $.ajax({
+                    url: "fetch_users.php",
+                    method: "GET",
+                    dataType: "html",
+                    success: function(response) {
+                        // Update the user container div with the fetched data
+                        $("#user-container").html(response);
+                    },
+                    error: function(xhr, status, error) {
+                        console.log("AJAX request error:", error);
+                    }
+                });
+            },
+            error: function(xhr, status, error) {
+                console.log("AJAX request error:", error);
+            }
+        });
+    });
+});
+</script>
+
 
 
 </main>
