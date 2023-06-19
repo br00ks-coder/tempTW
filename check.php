@@ -57,7 +57,6 @@ $query = "SELECT * FROM my_harvests"; $result = pg_query($dbconn, $query);
             echo '<h3>' . $harvName. '</h3>';
             echo '<p>Date Planted: ' . $harDatePlanted . '</p>';
             echo '<p>Date of Harvest: ' . $harDateFinished . '</p>';
-
             echo '</div>';
         }
         ?>
