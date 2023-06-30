@@ -6,3 +6,4 @@ class FlowerModel extends PDOConn{
         return $this->selectAll("SELECT * FROM flowers ORDER BY id ASC LIMIT :limit", ['limit'=> $limit]);
     }
 }
+

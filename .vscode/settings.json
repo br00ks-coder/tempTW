@@ -1,0 +1,14 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "webgardeningrds.cepe7iq3kfqk.eu-north-1.rds.amazonaws.com",
+            "port": 5432,
+            "askForPassword": true,
+            "driver": "PostgreSQL",
+            "database": "webgardening",
+            "username": "postgres",
+            "name": "webgardening"
+        }
+    ]
+}
